@@ -128,14 +128,14 @@ function DemoPageInner() {
             <h1 className="text-2xl font-bold text-gray-900 mb-1">Hypothesis Validator</h1>
             <p className="text-sm text-gray-500">Enter your A/B test results and get statistical significance instantly.</p>
           </div>
-          <button onClick={loadSample} className="text-xs font-medium text-brand-700 bg-brand-50 hover:bg-brand-100 border border-brand-300 rounded-lg px-3.5 py-2 transition-colors">
+          <button data-tour="sample" onClick={loadSample} className="text-xs font-medium text-brand-700 bg-brand-50 hover:bg-brand-100 border border-brand-300 rounded-lg px-3.5 py-2 transition-colors">
             ✨ Sample data
           </button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* Form */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div data-tour="input" className="lg:col-span-2 flex flex-col gap-4">
             {/* Experiment info */}
             <div className="bg-white rounded-xl border border-gray-200 p-6 flex flex-col gap-4">
               <h2 className="text-sm font-semibold text-gray-900">Experiment</h2>
@@ -183,14 +183,14 @@ function DemoPageInner() {
               {exp.variant.visitors > 0 && <p className="text-xs text-gray-400">Rate: {((exp.variant.conversions / exp.variant.visitors) * 100).toFixed(2)}%</p>}
             </div>
 
-            <button onClick={calculate} disabled={exp.control.visitors === 0 || exp.variant.visitors === 0}
+            <button data-tour="run" onClick={calculate} disabled={exp.control.visitors === 0 || exp.variant.visitors === 0}
               className="w-full bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold rounded-xl py-3 px-6 transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed">
               ✦ Calculate significance
             </button>
           </div>
 
           {/* Results */}
-          <div className="lg:col-span-3">
+          <div data-tour="results" className="lg:col-span-3">
             {!result && (
               <div className="bg-white rounded-xl border border-gray-200 border-dashed p-12 text-center flex flex-col items-center justify-center h-48">
                 <p className="text-sm text-gray-400">Results will appear here</p>
